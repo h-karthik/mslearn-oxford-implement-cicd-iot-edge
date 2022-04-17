@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 pool:
-  name: Hosted Ubuntu 1604
+  vmImage: ubuntu-latest
   
 steps:
 - task: CopyFiles@2
