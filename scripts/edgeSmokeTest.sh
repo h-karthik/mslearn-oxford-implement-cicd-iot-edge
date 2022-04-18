@@ -76,8 +76,6 @@ then
   fi
   device_tag="deviceId"
 else
-  devices=($(az iot hub query --hub-name $iothub_name --query-command "SELECT * FROM devices" --query '[].deviceId' -o tsv))
-  echo "Number of devices found in $iothub_name: ${#devices[*]}"
   devices=($(az iot hub query --hub-name $iothub_name --query-command "SELECT * FROM devices WHERE tags.$device_tag = '$device_tag_value'" --query '[].deviceId' -o tsv)) 
   if [ ${#devices[*]} -eq 0 ]
   then
